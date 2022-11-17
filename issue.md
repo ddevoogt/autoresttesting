@@ -1,6 +1,6 @@
 # Java client cannot parse text/plain endpoints that map to enums
 
-After generating the client with an endpoint that returns a string (text/plain), like a simple health endpoint, the default java client is unable to deserialize the successful response.
+After generating the client with an endpoint that returns a content-type of text/plain (string), like a simple health endpoint, the default java client is unable to deserialize the successful response.
 
 We have a csharp client generate and it deserializes the string fine, although it is not typed, it is just a `Task<Response<string>> GetReadyHealthStatusAsync(CancellationToken cancellationToken = default)`
 
