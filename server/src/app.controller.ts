@@ -5,8 +5,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get("/health/ready")
-  getHello(): string {
+  @Get("/health/ready/enum")
+  getHealth1(): string {
+    return this.appService.getHealth();
+  }
+  @Get("/health/ready/string")
+  getHealth2(): string {
     return this.appService.getHealth();
   }
 }

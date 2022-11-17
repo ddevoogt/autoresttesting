@@ -19,17 +19,29 @@ public class AppTest
     String internalUrl = "http://localhost:3000";
 
     @Test
-    public void healthCheck_Healthy_internal() {
+    public void healthCheck_AsEnum_ShouldBeHealthy() {
         FuncTestingThisIsMyNamespaceAPI client1 = new FuncTestingThisIsMyNamespaceAPIBuilder().host(internalUrl).buildClient();
 
-        Mono<Response<HealthStatus>> healthDetailsResponseAsync = client1.getReadyHealthStatusWithResponseAsync();
+        Mono<Response<HealthStatus>> healthDetailsResponseAsync = client1.getReadyHealthStatusAsPlainEnumWithResponseAsync();
         Response<HealthStatus> objectResponse = healthDetailsResponseAsync.log().block();
 
         Assertions.assertNotNull(objectResponse);
         assertEquals(200, objectResponse.getStatusCode());
-
         ObjectMapper objectMapper = new ObjectMapper();
         HealthStatus healthDetailsResponse = objectMapper.convertValue(objectResponse.getValue(), HealthStatus.class);
-        Assertions.assertNotNull(healthDetailsResponse);
+        Assertions.assertEquals(healthDetailsResponse, HealthStatus.HEALTHY);
+    }
+
+    @Test
+    public void healthCheck_AsString_ShouldBeHealthy() {
+        FuncTestingThisIsMyNamespaceAPI client1 = new FuncTestingThisIsMyNamespaceAPIBuilder().host(internalUrl).buildClient();
+
+        Mono<Response<String>> healthDetailsResponseAsync = client1.getReadyHealthStatusAsPlainStringWithResponseAsync();
+        Response<String> objectResponse = healthDetailsResponseAsync.log().block();
+
+        Assertions.assertNotNull(objectResponse);
+        assertEquals(200, objectResponse.getStatusCode());
+        var result = HealthStatus.fromString(objectResponse.getValue());
+        Assertions.assertEquals(result, HealthStatus.HEALTHY);
     }
 }
