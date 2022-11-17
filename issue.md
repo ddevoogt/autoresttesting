@@ -58,3 +58,6 @@ Caused by: com.fasterxml.jackson.core.JsonParseException:
 Unrecognized token 'Healthy': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
  at [Source: (byte[])"Healthy"; line: 1, column: 8]
  ```
+
+ ## Reproduction
+ I've add a [public git repository](https://github.com/ddevoogt/autoresttesting) with a simplified version of what we are seeing. Please follow the steps in the [readme](https://github.com/ddevoogt/autoresttesting#readme) if this ticket is not clear enough.
