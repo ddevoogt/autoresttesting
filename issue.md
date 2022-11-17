@@ -2,7 +2,7 @@
 
 After generating the client with an endpoint that returns a content-type of text/plain (string), like a simple health endpoint, the default java client is unable to deserialize the successful response.
 
-We have a csharp client generate and it deserializes the string fine, although it is not typed as a the HealthStatus enum like it does in java, it is just a `Task<Response<string>> GetReadyHealthStatusAsync(CancellationToken cancellationToken = default)`
+We have a csharp client generate and it deserializes the string fine, although it is not typed as a the HealthStatus enum like it does in java, it is just a `Task<Response<string>> GetReadyHealthStatusAsync(CancellationToken cancellationToken = default)`.
 
 ## [Sample Spec File](https://github.com/ddevoogt/autoresttesting/blob/main/openapi.json)
 ```
@@ -49,7 +49,7 @@ We have a csharp client generate and it deserializes the string fine, although i
 }
 ```
 
-## Produces error when in use
+## Produces error when the client is used to hit the health endpoint
 ```
 [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.447 s <<< FAILURE! - in my.health.test.AppTest
 [ERROR] healthCheck_Healthy_internal  Time elapsed: 0.445 s  <<< ERROR!
