@@ -1,6 +1,5 @@
 package my.health.test;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.azure.core.http.rest.Response;
