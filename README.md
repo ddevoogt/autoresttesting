@@ -29,7 +29,6 @@ autorest --java
 ```
 
 ## Run the java test with the generate java code.
-Build the client using Autorest
 ```
 cd client
 mvn test
