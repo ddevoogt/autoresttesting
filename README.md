@@ -4,6 +4,9 @@ The purpose of this project is to demonstrate a current issue in Azure's autores
 
 > see https://aka.ms/autorest
 
+
+> see https://github.com/Azure/autorest.java/issues/1858
+
 ## Getting Started
 
 Make sure you have autorest installed.
